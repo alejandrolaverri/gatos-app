@@ -7,7 +7,6 @@
     <list default="true" id="57cdd59e-c19a-4eb0-ac2a-898c9386d771" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/alejandromo/gatos_app/CatsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/alejandromo/gatos_app/CatsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/alejandromo/gatos_app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/alejandromo/gatos_app/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

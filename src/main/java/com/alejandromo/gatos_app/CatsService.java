@@ -1,9 +1,8 @@
 package com.alejandromo.gatos_app;
 
 import com.google.gson.Gson;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
+import com.squareup.okhttp.*;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -11,11 +10,14 @@ import java.io.IOException;
 import java.net.URL;
 
 public class CatsService {
+    private static String BASE_URL = "https://api.thecatapi.com/v1/";
+    private static String SEARCH_ENDPOINT = BASE_URL + "images/search";
+    private static String FAVORITE_ENDPOINT = BASE_URL + "favourites";
+    private static final OkHttpClient client = new OkHttpClient();
 
     public static void seeRandomCats() throws IOException {
         // Obtención de los datos de la API
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder().url("https://api.thecatapi.com/v1/images/search").get().build();
+        Request request = new Request.Builder().url(SEARCH_ENDPOINT).get().build();
         Response response = client.newCall(request).execute();
         String jsonData = response.body().string();
 
@@ -71,6 +73,22 @@ public class CatsService {
     }
 
     private static void addCatAsFavorite(Cats cat) {
+        try {
+            MediaType mediaType = MediaType.parse("application/json");
+            RequestBody body = RequestBody.create(mediaType, "{\n\t\"image_id\":\""+cat.getId()+"\"\n}");
+            Request request = new Request.Builder()
+                    .url(FAVORITE_ENDPOINT)
+                    .post(body)
+                    .addHeader("Content-Type", "application/json")
+                    .addHeader("x-api-key", cat.getApiKey())
+                    .build();
+            Response response = client.newCall(request).execute();
 
+            if (!response.isSuccessful()) {
+                response.body().close();
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 }
