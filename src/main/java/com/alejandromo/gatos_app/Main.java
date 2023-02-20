@@ -1,9 +1,10 @@
 package com.alejandromo.gatos_app;
 
 import javax.swing.*;
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         int optionMenu = -1;
         String[] buttoms = { "1. Ver gatos" , "2. Salir" };
 
@@ -28,11 +29,9 @@ public class Main {
 
            switch (optionMenu) {
                case 0 -> {
-                   break;
+                   CatsService.seeRandomCats();
                }
-               default -> {
-                   break;
-               }
+               default -> {}
            }
 
         } while (optionMenu != 1);
