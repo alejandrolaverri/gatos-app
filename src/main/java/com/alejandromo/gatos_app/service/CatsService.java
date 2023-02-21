@@ -5,7 +5,6 @@ import com.alejandromo.gatos_app.model.FavoriteCat;
 import com.google.gson.Gson;
 import com.squareup.okhttp.*;
 import io.github.cdimascio.dotenv.Dotenv;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -13,6 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 
 public class CatsService {
+    private static final Dotenv dotenv = Dotenv.load();
     private static final String BASE_URL = "https://api.thecatapi.com/v1/";
     private static final String SEARCH_ENDPOINT = BASE_URL + "images/search";
     private static final String FAVORITE_ENDPOINT = BASE_URL + "favourites";
@@ -96,8 +96,6 @@ public class CatsService {
     }
 
     public static void seeFavoriteCats() throws IOException {
-        Dotenv dotenv = Dotenv.load();
-
         Request request = new Request.Builder()
                 .url(FAVORITE_ENDPOINT)
                 .get()
@@ -157,7 +155,6 @@ public class CatsService {
                 switch (selection) {
                     case 0 -> seeFavoriteCats();
                     case 1 -> deleteFavorite(favoriteCat);
-                    default -> {}
                 }
 
             } catch (IOException e) {
@@ -167,6 +164,20 @@ public class CatsService {
     }
 
     private static void deleteFavorite(FavoriteCat favoriteCat) {
+        try {
+            Request request = new Request.Builder()
+                    .url(FAVORITE_ENDPOINT + favoriteCat.getId())
+                    .delete(null)
+                    .addHeader("Content-Type", "application/json")
+                    .addHeader("x-api-key", dotenv.get("API_KEY"))
+                    .build();
 
+            Response response = client.newCall(request).execute();
+            if (!response.isSuccessful()) {
+                response.body().close();
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 }
