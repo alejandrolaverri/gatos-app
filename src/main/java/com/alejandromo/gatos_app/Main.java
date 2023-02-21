@@ -1,12 +1,14 @@
 package com.alejandromo.gatos_app;
 
+import com.alejandromo.gatos_app.service.CatsService;
+
 import javax.swing.*;
 import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         int optionMenu = -1;
-        String[] buttoms = { "1. Ver gatos" , "2. Salir" };
+        String[] buttoms = { "1. Ver gatos" , "2. Ver favoritos", "3. Salir" };
 
         do {
            // Menu principal
@@ -30,6 +32,9 @@ public class Main {
            switch (optionMenu) {
                case 0 -> {
                    CatsService.seeRandomCats();
+               }
+               case 1 -> {
+                   CatsService.seeFavoriteCats();
                }
                default -> {}
            }

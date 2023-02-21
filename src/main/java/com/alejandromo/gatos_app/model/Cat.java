@@ -1,13 +1,13 @@
-package com.alejandromo.gatos_app;
+package com.alejandromo.gatos_app.model;
 
 import io.github.cdimascio.dotenv.Dotenv;
 
 
-public class Cats {
+public class Cat {
     private final Dotenv dotenv = Dotenv.load();
     private String id;
     private String url;
-    private String apiKey = dotenv.get("API_KEY");
+    private final String apiKey = dotenv.get("API_KEY");
     private String image;
 
     public String getId() {

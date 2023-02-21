@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57cdd59e-c19a-4eb0-ac2a-898c9386d771" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/alejandromo/gatos_app/model/FavoriteCat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/alejandromo/gatos_app/model/ImageX.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/alejandromo/gatos_app/CatsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/alejandromo/gatos_app/CatsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/alejandromo/gatos_app/Cats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/alejandromo/gatos_app/model/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/alejandromo/gatos_app/CatsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/alejandromo/gatos_app/service/CatsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/alejandromo/gatos_app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/alejandromo/gatos_app/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +63,7 @@
       <module name="gatos_app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.alejandromo.gatos_app.*" />
+          <option name="PATTERN" value="com.alejandromo.gatos_app.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
